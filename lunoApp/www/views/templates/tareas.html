@@ -1,0 +1,28 @@
+<ion-view view-title="Administradores">
+        <ion-nav-buttons  side="left">
+              <button class="button button-icon icon ion-ios-close-outline" on-tap="goBackFunction()"></button>  
+        </ion-nav-buttons>
+    
+        <ion-header-bar class="bar-subheader bar-light item-input-inset" style="box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);">
+                    
+        </ion-header-bar>
+    
+        <ion-content scroll="true" has-bouncing="true">
+        <span  class="loader" ng-hide="sinAprobar.$resolved"> <ion-spinner icon="android" class="loading-icon"></ion-spinner> </span>
+            
+        <ion-list can-swipe="listCanSwipe" ng-show="sinAprobar.$resolved">  
+            <ion-refresher pulling-text="Tirar para actualizar..." on-refresh="doRefreshTareasAdm()" spinner="android"></ion-refresher>
+                
+                <div class="item item-divider" style="background:#4F8EF7; color:#fff;">
+                    Registros pendientes
+                </div>
+            
+                <ion-item class="item item-thumbnail-left item-remove-animate" ng-repeat="item in sinAprobar" ng-click="aprobarRegistro(item)">
+                    <img ng-src='{{hostName}}{{item.Foto}}' style="border-radius:50%;">
+                    <h2>{{item.Tipo}}</h2>  
+                    <small>{{item.Nombre}}</small>
+                    <p>{{'C.I: '}}{{item.Cedula}}</p>
+                </ion-item>   
+        </ion-list>
+        </ion-content>
+      </ion-view>

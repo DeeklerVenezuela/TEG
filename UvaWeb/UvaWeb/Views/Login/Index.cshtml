@@ -1,0 +1,84 @@
+﻿@*@{
+    layout = "~/views/shared/_layout.cshtml";
+}*@
+<link href="~/Content/metro.css" rel="stylesheet" />
+<link href="~/Content/metro-icons.css" rel="stylesheet" />
+<link href="~/Content/login.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/metro.js"></script>
+<script src="~/Scripts/login.js"></script>
+
+<body  style="background-image: url('../../Img/345.png'); background-size: 100% 100%; ">
+    <div class="foto" >
+        <div class="logo-unefa" >
+            <div class="image-container handing ani image-format-hd" style="width: 160px; -webkit-box-shadow: -4px 5px 8px 0px rgba(50, 50, 50, 0.75);-moz-box-shadow:-4px 5px 8px 0px rgba(50, 50, 50, 0.75);box-shadow:-4px 5px 8px 0px rgba(50, 50, 50, 0.75);" >
+                <div class="frame">
+                    <div style="width: 100%; height: 140px; border-radius: 0px; background-size: cover; background-image: url('../../Img/unefa.png'); background-repeat: no-repeat;">
+                    </div>
+                </div>
+                <div class="image-overlay">Excelencia Educativa Abierta al Pueblo</div>
+            </div>
+        </div>
+    </div>
+    <div class="login-form padding20 shadow" style="-webkit-box-shadow: -4px 5px 8px 0px rgba(50, 50, 50, 0.75);-moz-box-shadow:-4px 5px 8px 0px rgba(50, 50, 50, 0.75);box-shadow:-4px 5px 8px 0px rgba(50, 50, 50, 0.75);">
+        <h2>UNEFA Video Tutoriales</h2>
+        <h5>Inicia sesion ahora!</h5>
+        <form action=@Url.Action("Login","Login") method="post">
+
+            <div class="input-control text full-size">
+                <input type="text" id="txtUser" name="txtUser" placeholder="Email" required>
+                <button class="button helper-button clear"><span class="mif-cross"></span></button>
+            </div>
+            <div class="input-control password full-size" data-role="input">
+                <input type="password" id="txtPass" name="txtPass" placeholder="Contraseña" required>
+                <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+            </div>
+            <label class="input-control checkbox small-check">
+                <input type="checkbox">
+                <span class="check"></span>
+                <span class="caption">Recuerdame</span>
+            </label>
+            <button class="button loading-cube full-size  fg-dark bg-active-cobalt" type="submit">Login</button>
+            <br /><br /><br />
+            <label>Aun no tienes una cuenta? &nbsp; &nbsp; @Html.ActionLink("Registrate", "Register", "Register")</label>
+        </form>
+    </div>  
+               
+            
+        
+
+
+    <script>
+        $(document).ready(function () {
+            function showDialog(id) {
+                var dialog = $(id).data('dialog');
+                if (!dialog.element.data('opened')) {
+                    dialog.open();
+                } else {
+                    dialog.close();
+                }
+            }
+            @if (!String.IsNullOrEmpty(ViewBag.Error))
+            {
+                @:showDialog("#dialog");
+            }
+        });
+    </script>
+
+
+    <div data-role="dialog" id="dialog" data-overlay="true" class="padding20" data-overlay-color="op-dark" data-close-button="true">
+        <h1>Error</h1>
+        <p>
+            @ViewBag.Error
+        </p>
+    </div>
+    @*@foreach (var Item in Model)
+        {
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayFor(modelItem => Item.Nombre)
+                </dt>
+
+            </dl>
+        }*@
+</body>

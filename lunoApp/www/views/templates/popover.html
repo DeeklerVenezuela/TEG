@@ -1,0 +1,30 @@
+<ion-popover-view style="height:335px;" ng-init="blockUser()">
+        <ion-content>
+          <div class="list" on-tap="popover.hide()">
+            <button class="item button-full positive item-icon-left btn-center" ui-sref="grupos()">
+                <i class="ion-ios-people"></i>
+              Grupos
+            </button>
+            <button class="item button-full positive item-icon-left btn-center" ui-sref="config()">
+                <i class="ion-ios-cog-outline"></i>
+              Ajustes
+            </button>
+            <button class="item button-full positive item-icon-left btn-center" ui-sref="estadisticas()" ng-disabled="profesor">
+                <i class="ion-ios-pie-outline"></i>
+              Estadísticas
+            </button>
+            <button class="item button-full positive item-icon-left btn-center" ui-sref="adminProf()" ng-disabled="profesor">
+                <i class="ion-ios-bookmarks-outline"> </i>
+                Área de Docentes&nbsp;
+            </button>
+            <button class="item button-full positive item-icon-left btn-center" ui-sref="tareas()" ng-disabled="admin">
+                <i class="ion-ios-settings"> </i>
+                Administradores&nbsp;
+            </button>
+            <button class="item button-full positive item-icon-left btn-center" ui-sref="inicio" on-tap="cerrarSesion()">
+                <i class="ion-ios-undo-outline"></i>
+              Salir
+            </button>
+          </div>
+        </ion-content>
+</ion-popover-view>

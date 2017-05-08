@@ -1,0 +1,24 @@
+<ion-view title="Perfil" animation="slide-left-right">
+                  <ion-content >
+                        <div  class="fondo-blue">  
+                            <img src="{{hostName + usuario[2]}}" class="img-user-detail">
+                        </div>
+                        <div class="list list-inset padding">
+                        <label class="item item-input">
+                            <input type="text" placeholder="Nombre" value="Nombre: {{usuario[0]}}" readonly>
+                        </label>
+                            <label class="item item-input">
+                            <input type="text" placeholder="Apellido" value="Apellido: {{usuario[1]}}" readonly>
+                        </label>
+                        </label>
+                            <label class="item item-input">
+                        <input type="text" placeholder="Grupos" readonly>
+                                
+                        </label>
+                        <div class="item item-input" style="padding: 5px;" ng-repeat="i in grupos">
+                            <button class="button button-full button-positive "> 
+                                {{i.Grupo}}
+                            </button>
+                        </div>
+                  </ion-content>
+</ion-view>

@@ -1,0 +1,24 @@
+
+<div class="list">
+  
+    <span class="input-label">Nombre</span>
+  <label class="item item-input"> 
+    <input type="text" placeholder="First Name" ng-model="data.Nombre">
+  </label>
+  
+    <span class="input-label">Descripción</span>
+  <label class="item item-input">
+    <textarea placeholder="Comments" ng-model="data.Descripcion" style="min-height:100px"></textarea>
+  </label>
+    
+    <div class="item item-toggle">
+        Habilitado
+        <label class="toggle toggle-positive">
+            <input type="checkbox" id="enableVideo" ng-model="data.Status">
+            <div class="track">
+                <div class="handle"></div>
+            </div>                
+        </label>
+    </div>
+</div>
+

@@ -1,0 +1,67 @@
+<ion-modal-view class="product edit create">
+          <form name="itemEdit" novalidate>
+            <ion-header-bar class="bar-light fix-buttons has-tabs-top">
+                <button class="button button-icon icon ion-ios-close-outline" ng-click="closeModal()"></button>
+              
+            </ion-header-bar>
+              <ion-header-bar class="bar-subheader bar-light item-input-inset">
+              <h1 class="title">Cargar Videos</h1>
+            </ion-header-bar>
+            <ion-content has-bouncing="true">
+              <div class="row" ng-class="{'no-padding-top': !data.editItem}">
+                <div class="col">
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col">
+                    <span  class="loader" id="loader-upload"> <ion-spinner icon="android" class="loading-icon"></ion-spinner> </span>  
+                    <label id="label-upload">Cargando archivo, por favor espere!!!</label>
+                <label class="item item-input large">
+                    <input type="file" placeholder="Seleccione un tutorial" class="custom-file-input" onchange="angular.element(this).scope().fileChanged(this)" id="inputFile">
+                    
+                </label>
+                <label class="item item-input large">
+                    <input type="text" readonly class="value-file-input" ng-model="data.archivoNombre">
+                  </label>
+                    
+                  <label class="item item-input large">
+                    <input type="text" placeholder="Nombre" id="nombre-subir">
+                  </label>
+                </div>
+              </div>
+              <div class="row description-row">
+                <div class="col">
+                  <label class="item item-input text">
+                    <textarea placeholder="Descripcion" rows="5" ng-Required="true" lose-focus-on-return id="descripcion-subir"></textarea>
+                  </label>
+                </div>
+              </div>
+
+              <div class="row charity-row">
+                <div class="col" >
+                  
+                    <ul class="list">
+                        <li class="item item-toggle">
+                             Habilitar visualización?
+                      <label class="toggle toggle-positive">
+                            <input type="checkbox" id="enableVideo">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                            
+                        </label>
+                        </li>
+                        <li>
+                            <label class="item item-input">
+                                <input type="submit" value="Subir" ng-click="uploadVideo(archivoNombre)" class="button button-positive button-clear">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+
+
+            </ion-content>
+          </form>
+        </ion-modal-view>

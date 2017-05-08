@@ -1,0 +1,16 @@
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\UvaBussiness.dll.config
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\UvaBussiness.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\UvaBussiness.pdb
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\EntityFramework.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\MySql.Data.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\MySql.Data.Entity.EF6.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\Uvadat.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\UvaModel.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\Uvadat.pdb
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\UvaModel.pdb
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\EntityFramework.xml
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\obj\Debug\UvaBussiness.csprojResolveAssemblyReference.cache
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\obj\Debug\UvaBussiness.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaBussiness\obj\Debug\UvaBussiness.pdb

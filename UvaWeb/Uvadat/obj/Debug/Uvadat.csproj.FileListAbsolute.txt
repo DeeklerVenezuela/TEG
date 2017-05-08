@@ -1,0 +1,11 @@
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\bin\Debug\Uvadat.dll.config
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\bin\Debug\Uvadat.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\bin\Debug\Uvadat.pdb
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\bin\Debug\EntityFramework.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\bin\Debug\MySql.Data.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\bin\Debug\MySql.Data.Entity.EF6.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\bin\Debug\EntityFramework.xml
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\obj\Debug\Uvadat.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\Uvadat\obj\Debug\Uvadat.pdb

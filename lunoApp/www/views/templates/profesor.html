@@ -1,0 +1,21 @@
+<ion-view title="Profesores" ng-init="buscarDataProfesor()" on-swipe-right="goMensajes()" on-swipe-left="goSuscripcion()">
+          <ion-header-bar class="bar-subheader bar-light item-input-inset"  style="box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);">
+                <label class="item-input-wrapper">
+                  <i class="icon ion-ios7-search placeholder-icon"></i>
+                  <input type="search" placeholder="Buscar..." ng-model="filterProfesor">
+                    </label>
+            </ion-header-bar>
+        <ion-content class="padding" has-bouncing="true">
+            <ion-refresher pulling-text="Tirar para actualizar..." on-refresh="doRefreshProfesor()" spinner="android"></ion-refresher>
+            <span ng-hide= "profesores.$resolved" class="loader"> <ion-spinner icon="android" class="loading-icon"></ion-spinner> </span>
+          <div class="list" ng-show= "profesores.$resolved">
+            <div class="item item-divider" style="background:#4F8EF7; color:#fff;">
+                Profesor de tus grupos
+            </div>
+                <a class="item item-thumbnail-left" ui-sref="tabs.detailUser({id:item.UserID})" ng-repeat="item in profesores | filter:filterProfesor">
+                    <img ng-src='{{hostName}}{{item.Foto}}'>
+                    <h2>{{item.Nombre + " " + item.Apellido}}</h2> 
+                </a>
+          </div>
+        </ion-content>
+</ion-view>

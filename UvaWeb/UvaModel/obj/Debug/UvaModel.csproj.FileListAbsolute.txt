@@ -1,0 +1,12 @@
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\bin\Debug\UvaModel.dll.config
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\bin\Debug\UvaModel.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\bin\Debug\UvaModel.pdb
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\bin\Debug\EntityFramework.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\bin\Debug\MySql.Data.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\bin\Debug\MySql.Data.Entity.EF6.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\bin\Debug\EntityFramework.xml
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\obj\Debug\UvaModel.dll
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\obj\Debug\UvaModel.pdb
+c:\Users\Jean\Documents\Visual Studio 2013\Projects\UvaWeb\UvaModel\obj\Debug\UvaModel.csprojResolveAssemblyReference.cache

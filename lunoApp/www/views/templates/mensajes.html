@@ -1,0 +1,31 @@
+<ion-view view-title="Mensajes" ng-init="buscarMensajes()" on-swipe-left="goProfesor()" on-swipe-right="goHome()">
+          <ion-header-bar class="bar-subheader bar-light item-input-inset" style="box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);">
+                <label class="item-input-wrapper">
+                  <i class="icon ion-ios7-search placeholder-icon"></i>
+                  <input type="search" placeholder="Buscar..." ng-model="filterMensajes">
+                    </label>
+            </ion-header-bar>
+    <ion-nav-buttons  side="left">
+              <button class="button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete;" ></button>
+      
+    </ion-nav-buttons>
+        <ion-content class="padding" has-bouncing="true">
+           
+          <span ng-hide= "mensajes.$resolved" class="loader"> <ion-spinner icon="android" class="loading-icon"></ion-spinner> </span>
+            <ion-list  show-delete="data.showDelete" can-swipe="listCanSwipe" ng-show= "mensajes.$resolved" >
+                <ion-refresher pulling-text="Tirar para actualizar..." on-refresh="doRefreshMensajes()" spinner="android"></ion-refresher>
+                <div class="item item-divider" style="background:#4F8EF7; color:#fff;">
+    Mensajes
+  </div>
+    <ion-item  class="item item-thumbnail-left item-remove-animate" ng-repeat="item in mensajes | filter:filterMensajes" ui-sref="tabs.detailMensaje({id:item[0].VideoID,chat:item[0].chat})">
+      <img src='{{hostName}}{{item[0].thumb}}'>
+        <h2>{{item[0].NombreProfesor + ' ' + item[0].ApellidoProfesor}}</h2>
+        <p>{{ item[0].VideoNombre}}</p>
+        <p>{{'Descripción :' + item[0].VideoDescripcion}}</p>
+        <ion-delete-button class="ion-ios-trash-outline" on-tap="DeleteMensaje(item)"></ion-delete-button>
+    </ion-item>
+                
+            </ion-list>
+
+        </ion-content>
+      </ion-view>

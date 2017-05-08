@@ -1,0 +1,85 @@
+<ion-view view-title="Ajustes">
+    <ion-nav-buttons  side="left">
+              <button class="button button-icon icon ion-ios-close-outline" on-tap="goBackFunction()"></button>  
+        </ion-nav-buttons>
+          <ion-header-bar class="bar-subheader bar-light item-input-inset" style="box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);">   
+            </ion-header-bar>
+        <ion-content class="config-options-lists">
+            
+            <!--Configuración Básica-->
+            <div class="list padding ">
+                
+                <div class="est-container">
+                    <div class="est-title">Configuración de la cuenta</div>
+                    <div class="est-subtitle">Modifique sus datos personales y de seguridad</div>
+                </div>
+                <div>
+                    <img src="{{fotoUrl}}" width="200px" style="height:auto; min-height:200px;" id="img-inicio2" >
+                    <input type="file" class="custom-file-input2" id="custom-file-input2" onchange="angular.element(this).scope().fileChanged2(this)">
+                </div>
+                <button class="button button-clear button-positive config-options-buttons" on-tap="uploadFoto()">
+                    Guardar Foto
+                </button>&nbsp;&nbsp;
+                <button class="button button-clear button-assertive config-options-buttons" on-tap="GetFotoActual()">
+                    Cancelar
+                </button>
+                <br>
+                <div class="est-container">
+                    <div class="est-title">Datos Básicos</div>
+                    <div class="est-subtitle">Por motivos de seguridad solo puede actualizar su email.</div>
+                </div>
+                <div class="list list-inset">
+                <label class="item item-input">
+                    <span class="input-label">Nombre:</span>
+                    <input type="text" placeholder="Nombre" readonly ng-model="nombre">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Apellido:</span>
+                    <input type="text" placeholder="Apellido" readonly ng-model="apellido">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Email:</span>
+                    <input type="text" placeholder="Email" id="cuenta-email" ng-model="email">
+                </label>
+                </div>
+                
+                <button class="button button-clear button-positive config-options-buttons" on-tap="UpdateEmail(email)">
+                    Guardar Cambios
+                </button>&nbsp;&nbsp;
+                <button class="button button-clear button-assertive config-options-buttons" on-tap="GetEmailActual()">
+                    Cancelar
+                </button>
+                    
+            </div>
+            <!--Contraseña-->
+            
+            <div class="list padding">
+                <div class="est-container">
+                    <div class="est-title">Cambiar contraseña</div>
+                    <div class="est-subtitle">La contraseña debe contener letras(a-z/A-Z) y números</div>
+                </div>
+                <br>
+                <label class="item item-input">
+                    <span class="input-label">Contraseña actual:</span>
+                    <input type="password" placeholder="Contraseña actual">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Nueva contraseña:</span>
+                    <input type="password" placeholder="Contraseña nueva">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Repita contraseña:</span>
+                    <input type="password" placeholder="Repita Contraseña">
+                </label>
+                
+            </div>
+            <button class="button button-clear button-positive config-options-buttons">
+                    Guardar Cambios
+                </button>
+
+                
+            
+          
+
+        </ion-content>
+      </ion-view>

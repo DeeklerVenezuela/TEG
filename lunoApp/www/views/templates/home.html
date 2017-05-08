@@ -1,0 +1,41 @@
+<ion-view view-title="Videos" on-swipe-up="openModal()" on-swipe-left="goMensajes()" ng-init="blockUser()">
+          
+          <ion-nav-buttons  side="left">
+              <button class="button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete;" ></button>
+              <button class="button button-icon icon ion-ios-plus-outline" ng-click="openModal()"></button>
+      
+    </ion-nav-buttons>
+          
+          <ion-header-bar class="bar-subheader bar-light item-input-inset" style="box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);">
+              
+                <label class="item-input-wrapper">
+                  <i class="icon ion-ios7-search placeholder-icon"></i>
+                  <input type="search" placeholder="Buscar..." ng-model="filterVideos">
+                </label>
+            </ion-header-bar>
+        <ion-content has-bouncing="true" class="padding">
+            
+            <span ng-hide= "videos.$resolved" class="loader"> <ion-spinner icon="android" class="loading-icon"></ion-spinner> </span>
+            
+            <ion-list ng-show= "videos.$resolved" show-delete="data.showDelete" can-swipe="listCanSwipe" >                
+            <ion-refresher pulling-text="Tirar para actualizar..." on-refresh="doRefreshVideos()" spinner="android"></ion-refresher>
+<div class="item item-divider" style="background:#4F8EF7; color:#fff;">
+    Video Tutoriales que puedes ver
+  </div>
+    <ion-item class="item item-thumbnail-left item-remove-animate" ui-sref="tabs.detailVideo({id:item.VideoID})" ng-repeat="item in videos | filter:filterVideos">
+      <img ng-src='{{hostName}}{{item.Thumb}}'>
+      <h2>{{item.NombreProfesor + ' ' + item.ApellidoProfesor}}</h2>
+      <p>{{item.Descripcion}}</p>
+    <small>{{item.Fecha}}</small>
+                         
+
+        <ion-delete-button class="ion-ios-trash-outline" on-tap="onItemDelete(item)">
+    </ion-delete-button>
+
+    </ion-item>
+
+       
+   
+</ion-list>
+        </ion-content>
+      </ion-view>

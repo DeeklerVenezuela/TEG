@@ -1,0 +1,5 @@
+C:\Users\Jean\documents\visual studio 2013\Projects\UvaWeb\Repository\bin\Release\Repository.dll
+C:\Users\Jean\documents\visual studio 2013\Projects\UvaWeb\Repository\bin\Release\Repository.pdb
+C:\Users\Jean\documents\visual studio 2013\Projects\UvaWeb\Repository\obj\Release\Repository.dll
+C:\Users\Jean\documents\visual studio 2013\Projects\UvaWeb\Repository\obj\Release\Repository.pdb
+C:\Users\Jean\documents\visual studio 2013\Projects\UvaWeb\Repository\obj\Release\Repository.csprojResolveAssemblyReference.cache

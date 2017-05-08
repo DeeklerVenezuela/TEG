@@ -1,0 +1,414 @@
+﻿<link href="~/Content/login.css" rel="stylesheet" />
+<link href="~/Content/metro.css" rel="stylesheet" />
+<link href="~/Content/metro-icons.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/metro.js"></script>
+<script src="~/Scripts/login.js"></script>
+<script src="~/Scripts/Home.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/select2.min.js"></script>
+<body class="bg-white">
+    <div class="app-bar fixed-top darcula" data-role="appbar">
+        <a class="app-bar-element branding">
+            <img src="~/Img/unefa.png" style="height:45px; display:inline-block; margin-right:10px;"/>UNEFA</a>
+        <span class="app-bar-divider"></span>
+        
+
+        <div class="app-bar-element place-right">
+            <span class="dropdown-toggle"><span class="mif-cog"></span> User Name</span>
+            <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow" data-role="dropdown" data-no-close="true" style="width: 220px">
+                <h2 class="text-light">Menú</h2>
+                <ul class="unstyled-list">
+                    <li><a href="" class="fg-white fg-hover-blue">Opciones</a></li>
+                    <li><a href="" class="fg-white fg-hover-blue">Salir</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="app-bar-pullbutton automatic" style="display: none;"></div><div class="clearfix" style="width: 0;"></div><nav class="app-bar-pullmenu hidden flexstyle-app-bar-menu" style="display: none;"><ul class="app-bar-pullmenubar app-bar-menu hidden" style="display: none;"></ul></nav>
+    </div>
+
+    <div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                @*Menú izquierdo*@
+                <div class="cell size-x200" id="cell-sidebar" style="background-color:#dcdcdc; height: 100%">
+                    <ul class="sidebar fg-gray " style="background-color:#dcdcdc;">
+                        <li id="tabSuscripcionLeft" class="active">
+                            <a href="#" class="bg-hover-blue fg-hover-white fg-active-blue">
+                                <span class="mif-users icon"></span>
+                                <span class="title">Suscripciones</span>
+
+                            </a>
+                        </li>
+                        <li id="tabMensajeLeft" >
+                            <a href=" #" class="bg-hover-blue fg-hover-white fg-active-blue">
+                                <span class="mif-contacts-mail icon"></span>
+                                <span class="title">Mensajes</span>
+                                
+                            </a>
+                        </li>
+                        <li id="tabVideoLeft">
+                            <a href="#" class="bg-hover-blue fg-hover-white fg-active-blue">
+                                <span class="mif-file-video icon"></span>
+                                <span class="title">Videos</span>
+                                
+                            </a>
+                        </li>
+                        
+                        <li id="tabEstadisticaLeft" class="disabled">
+                            <a href="#" class="bg-hover-blue fg-hover-white fg-active-blue">
+                                <span class="mif-chart-line icon"></span>
+                                <span class="title">Estadisticas</span>
+                                
+                            </a>
+                        </li>
+                        <li id="tabProfesorLeft">
+                            <a href="#" class="bg-hover-blue fg-hover-white fg-active-blue">
+                                <span class="mif-school icon"></span>
+                                <span class="title">Profesores</span>
+                                
+                            </a>
+                        </li>
+                        <li id="tabOpcionLeft">
+                            <a href="#" class="bg-hover-blue fg-hover-white">
+                                <span class="mif-cog mif-ani-pulse icon"></span>
+                                <span class="title">Opciones</span>
+                                
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="cell auto-size padding20 bg-white" id="principalContent">
+                    <div id="tabcontrol" class="tabcontrol" data-role="tabControl">
+                        <ul class="tabs">
+                            <li class="active"><a id="tabsuscripcion" href="#tabSuscripcion">Suscripciones</a></li>
+                            <li><a id="tabmensaje" href="#tabMensajes">Mensajes</a></li>
+                            <li><a id="tabvideo" href="#tabVideos">Videos</a></li>
+                            <li class="disabled"><a id="tabestadistica" href="#tabEstadisticas">Estadisticas</a></li>
+                            <li><a id="tabprofesor" href="#tabProfesores">Profesores</a></li>
+                            <li><a id="tabopcion" href="#tabOpciones">Opciones</a></li>
+                        </ul>
+                        <div class="frames bg-white resize">
+                            
+                            @*Seccion de suscripciones*@
+                            <div class="frame resize bg-white" id="tabSuscripcion">
+                                <h1 class="text-light ">SUSCRIPCIONES <span class="mif-users fg-blue place-right"></span></h1>
+                                <hr class="thin bg-grayLighter">
+                                <button class="button bg-lightGreen bg-hover-emerald bd-lightGreen fg-white" onclick="showDialog('dialogCreateSuscription')"><span class=" mif-plus"></span> Agregar</button>
+                                <button class="button bg-blue bd-blue bg-hover-darkBlue  fg-white" id="btnEliminarSuscripcion"><span class="mif-cross"></span> Eliminar</button>
+                                <button id="carga" class="button bg-blue bg-hover-darkBlue  bd-blue fg-white"><span class="mif-loop2"></span> Recargar</button>
+                                <hr class="thin bg-grayLighter">
+
+
+                                <table class="dataTable border bordered no-footer" data-auto-width="false" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <td class="sortable-column sort-asc sorting" style="width: 150px" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending">Código</td>
+                                            <td class="sortable-column sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Machine name: activate to sort column ascending">Video</td>
+                                            <td class="sortable-column sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending">Profesor</td>
+                                            <td class="sortable-column sorting" style="width: 20px" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <div data-role="dialog" id="dialogCreateSuscription" class="padding20" data-close-button="true" data-overlay="true" data-overlay-color="op-dark">
+                                    <h1 class="text-light align-center">Agregar suscripción</h1>
+                                    <p class="align-center">
+                                        Puedes agregar una suscripción ingresando un código de suscripción(de 8 digitos)
+                                    </p>
+                                    <hr class="thin bg-grayLighter">
+                                    <br /><br />
+                                    <h1 class="text-light align-center">Código</h1>
+                                    <form method="post" class="padding30 no-padding-top" data-role="validator" data-on-before-submit="no_submit" data-hint-mode="line">
+                                        <div class="input-control text full-size">
+                                            <span class="mif-user prepend-icon"></span>
+                                            <input id="Icode" type="text" placeholder="Ej:12345678" class="full-size" data-validate-func="minlength" data-validate-arg="8" data-validate-hint="El valor debe al menos contener 8 digitos" data-validate-hint-position="top" />
+                                            <span class="input-state-error mif-warning"></span>
+                                            <span class="input-state-success mif-checkmark"></span>
+                                        </div>
+                                        <div class="align-center">
+                                            <button value="Agregar" class="full-size button" id="btnCrearSuscripcion">Agregar</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>@*frame suscripcion*@
+                            
+
+                            @*Seccion de mensajes*@
+                            <div class="frame resize bg-white" id="tabMensajes">
+                                <h1 class="text-light">MENSAJES<span class="mif-contacts-mail fg-blue place-right"></span></h1>
+                                <hr class="thin bg-grayLighter" />
+                                <button class="button bg-blue bg-hover-darkBlue  bd-blue fg-white"><span class="mif-cross"></span> Eliminar</button>
+                                <button id="carga" class="button bg-hover-darkBlue  bg-blue bd-blue fg-white"><span class="mif-loop2"></span> Recargar</button>
+                                <hr class="thin bg-grayLighter">
+                            </div>
+
+                            @*Seccion de videos*@
+                            <div class="frame resize bg-grayLighter" id="tabVideos">
+                                <h1 class="text-light ">VIDEOS<span class="mif-file-video fg-blue place-right"></span></h1>
+                                <hr class="thin bg-grayLighter">
+                                <button class="button bg-lightGreen bg-hover-emerald bd-lightGreen fg-white"><span class=" mif-plus"></span> Agregar</button>
+                                <button class="button bg-blue bg-hover-darkBlue bd-blue fg-white"><span class=" mif-pencil"></span> Editar</button>
+                                <button class="button bg-blue bg-hover-darkBlue  bd-blue fg-white"><span class="mif-cross"></span> Eliminar</button>
+                                <button id="carga" class="button bg-hover-darkBlue  bg-blue bd-blue fg-white"><span class="mif-loop2"></span> Recargar</button>
+                                <hr class="thin bg-grayLighter">
+
+                                
+                                
+                                    <div class="margin10 bg-white shadow videoThumb">
+                                        <div class="thumbnail">
+                                            <img src="~/Img/Jellyfish.jpg" class="thumbnailVideo">
+                                            <div class="caption padding5 no-padding-bottom no-padding-top">
+                                                <h5>Nombre del video:</h5>
+                                                <p>profesor</p>
+                                                <p>22/07/2015</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="margin10 bg-white shadow videoThumb">
+                                    <div class="thumbnail">
+                                        <img src="~/Img/Koala.jpg" class="thumbnailVideo" />
+                                        <div class="caption padding5 no-padding-bottom no-padding-top">
+                                            <h5>Nombre del video es muy lago:</h5>
+                                            <p>profesor</p>
+                                            <p>22/07/2015</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="margin10 bg-white shadow videoThumb">
+                                    <div class="thumbnail">
+                                        <img src="~/Img/Penguins.jpg" class="thumbnailVideo" />
+                                        <div class="caption padding5 no-padding-bottom no-padding-top">
+                                            <h5>Nombre del video:</h5>
+                                            <p>profesor</p>
+                                            <p>22/07/2015</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class=" margin10 bg-white shadow videoThumb">
+                                    <div class="thumbnail">
+                                        <img src="~/Img/Jellyfish.jpg" class="thumbnailVideo" />
+                                        <div class="caption padding5 no-padding-bottom no-padding-top">
+                                            <h5>Nombre del video:</h5>
+                                            <p>profesor</p>
+                                            <p>22/07/2015</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                   
+                                    
+                         
+
+                                
+                                @*<table class="dataTable border bordered no-footer" data-auto-width="false" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <td class="sortable-column sort-asc sorting" style="width: 150px"  tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending">Nombre</td>
+                                            <td class="sortable-column sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Machine name: activate to sort column ascending">Descripcion</td>
+                                            <td class="sortable-column sorting" style="width: 250px"  tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending">Profesor</td>
+                                            <td class="sortable-column sorting" style="width: 250px" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">Pilas</td>
+                                            <td>Pilas con lenguaje C</td>
+                                            <td><a href="#">Jean Robles</a></td>
+                                            <td>
+                                                <video controls="controls">
+                                                    <source src="file.mp4" type="video/mp4" />
+                                                    <source src="file.webm" type="video/webm" />
+                                                    <source src="file.ogv" type="video/ogg" />
+                                                </video>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">Pilas</td>
+                                            <td>Pilas con lenguaje C</td>
+                                            <td><a href="#">Jean Robles</a></td>
+                                            <td>
+                                                <video controls="controls">
+                                                    <source src="file.mp4" type="video/mp4" />
+                                                    <source src="file.webm" type="video/webm" />
+                                                    <source src="file.ogv" type="video/ogg" />
+                                                </video>
+                                            </td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">Pilas</td>
+                                            <td>Pilas con lenguaje C</td>
+                                            <td><a href="#">Jean Robles</a></td>
+                                            <td>
+                                                <video controls="controls">
+                                                    <source src="file.mp4" type="video/mp4" />
+                                                    <source src="file.webm" type="video/webm" />
+                                                    <source src="file.ogv" type="video/ogg" />
+                                                </video>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>*@
+                            </div>
+
+                            @*Seccion de estadisticas*@
+                            <div class="frame resize bg-white" id="tabEstadisticas">
+                                <h1 class="text-light">ESTADÍSTICAS<span class="mif-chart-line fg-blue place-right"></span></h1>
+                                <hr class="thin bg-grayLighter" />
+                                <button class="button bg-blue bd-blue fg-white"><span class="mif-magic-wand"></span> Generar</button>
+                                <button id="carga" class="button bg-blue bd-blue fg-white"><span class="mif-loop2"></span> Recargar</button>
+                                <hr class="thin bg-grayLighter">
+                            </div>
+
+                            @*Seccion de profesores*@
+                            <div class="frame resize bg-white" id="tabProfesores">
+                                <h1 class="text-light">PROFESORES<span class="mif-school fg-blue place-right"></span></h1>
+                                <hr class="thin bg-grayLighter" />
+                                
+                            </div>
+
+                            @*Seccion de opciones*@
+                            <div class="frame resize bg-white" id="tabOpciones">
+                                <h1 class="text-light">OPCIONES<span class="mif-cog mif-ani-pulse fg-blue place-right"></span></h1>
+                                <hr class="thin bg-grayLighter" />
+                                <div class="accordion bg-white" data-role="accordion" id="optionsAccordion">
+                                    <div class="frame no-margin no-padding bg-white">
+                                        <div class="heading">Datos de Perfil<span class="mif-profile mif-4x icon"></span></div>
+                                        <div class="content">
+                                            <div class="flex-grid">
+                                                <div class="row">
+                                                    <div class="cell colspan9 padding10">
+                                                        <form action="#" method="post">
+                                                            <div class="input-control text full-size">
+                                                                <input type="text" readonly class="full-size" disabled value="Nombre" />
+                                                            </div>
+                                                            <div class="input-control text full-size">
+                                                                <input type="text" readonly class="full-size" disabled value="Apellido" />
+                                                            </div>
+                                                            <div class="input-control text full-size">
+                                                                <input type="text" readonly class="full-size" disabled value="Cédula" />
+                                                            </div>
+                                                            <div class="input-control text full-size">
+                                                                <input type="text" class="full-size" value="alguien@tudominio.com" />
+                                                            </div>
+                                                            <br />
+                                                            <div class="input-control text full-size">
+                                                                <input type="text" class="full-size" value="Estudiante" />
+                                                            </div>
+                                                            <div class="input-control file full-size" data-role="input">
+                                                                <input type="file">
+                                                                <button class="button"><span class="mif-folder fg-blue"></span></button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="cell colspan3 padding10">
+                                                        <img src="~/Img/home-user-icon.png" style="width:240px; height:auto; border-radius:50%; border:dashed 1px #808080;" class="bg-grayLighter padding20 no-padding-top no-padding-bottom"/>
+                                                        <button class="button full-size" ><span class="mif-pencil fg-blue "></span>Editar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="frame no-margin no-padding bg-white">
+                                        <div class=" heading">Seguridad<span class="mif-security icon"></span></div>
+                                        <div class="content">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute.
+                                        </div>
+                                    </div>
+                                <div class="frame no-margin no-padding bg-white">
+                                        <div class=" heading">Uniones a Grupos<span class="mif-folder-special icon"></span></div>
+                                        <div class="content">
+                                            <hr class="thin bg-grayLighter" />
+                                            <button id="AgregarGrupo" class="button bg-lightGreen bg-hover-emerald bd-lightGreen fg-white" onclick="showDialog('dialogUnionGroup')"><span class=" mif-plus"></span> Agregar</button>
+                                            <button class="button bg-blue bg-hover-darkBlue  bd-blue fg-white"><span class="mif-cross"></span> Eliminar</button>
+                                            <button id="cargaGrupo" class="button bg-hover-darkBlue  bg-blue bd-blue fg-white"><span class="mif-loop2"></span> Recargar</button>
+                                            <hr class="thin bg-grayLighter" />
+                                            @*table de grupos*@
+                                            <table class="dataTable border bordered no-footer" data-auto-width="false" id="DataTables_Table_2" role="grid" aria-describedby="DataTables_Table_2_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <td class="sortable-column sort-asc sorting" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending">Carrera</td>
+                                                        <td class="sortable-column sorting" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Machine name: activate to sort column ascending">Sección</td>
+                                                        <td class="sortable-column sorting"  tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Address: activate to sort column ascending">Semestre</td>
+                                                        <td class="sortable-column sorting" tabindex="0" aria-controls="DataTables_Table_2" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Turno</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                </tbody>
+                                            </table>
+                                            
+
+                                            
+
+                                        </div>
+                                    </div>
+                                    @*Unirse a un grupo*@
+                                    <div data-role="dialog" id="dialogUnionGroup"  class="padding20" data-close-button="true" data-overlay="true" data-overlay-color="op-dark" data-windows-style="true">
+                                        <h1 class="text-light align-center">Unirse a un grupo</h1>
+                                        <p class="align-justify">
+                                            Debes suscribirte a un grupo para poder encontrar a tus profesores, toma en cuenta que un vez suscrito debes esperar un plazo de 3 meses para poder cambiar tu suscripción. En caso de tener inconvenientes contacta a un administrador del sitio a traves del siguiente <a href="#">enlace</a>.
+                                        </p>
+                                        <hr class="thin bg-grayLighter">
+                                        <br /><br />
+                                        <form method="post" class="padding30 no-padding-top" data-role="validator" data-on-before-submit="no_submit" data-hint-mode="line">
+                                            <label>Carrera</label>
+                                            <select id="selectCarrera" class="js-select " tabindex="-1" style="display:none; width:100%;">
+                                                <option></option>
+                                                <option value="SISTEMAS">(ING)SISTEMAS</option>
+                                                <option value="NAVAL">(ING)NAVAL</option>
+                                                <option value="PETROQUIMICA">(ING)PETROQUIMICA</option>
+                                                <option value="TURISMO">(TSU)TURISMO</option>
+                                                <option value="ENFERMERIA">(TSU)ENFERMERÍA</option>
+                                                <option value="ECONOMIA">(TSU)ECONOMÍA_SOCIAL</option>
+                                            </select>
+                                            
+                                            <label>Semestre</label>
+                                            <select id="selectSemestre" class="js-select " tabindex="-1" style="display:none; width:100%;">
+                                                <option></option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                            </select>
+                                            <label>Turno</label>
+                                            <select id="selectTurno" class="js-select " tabindex="-1" style="display:none; width:100%;">
+                                                <option></option>
+                                                <option>D</option>
+                                                <option>N</option>
+                                            </select>
+                                            <label>Sección</label>
+                                            <select id="selectSeccion" class="js-select" tabindex="-1" style="display:none; width:100%;">
+                                                
+                                            </select>
+                                            
+                                            <div class="align-center">
+                                                <button value="Agregar" class="full-size button" id="btnUnirGrupo">Agregar</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    @*//unirse a grupo*@
+                                </div>
+                            </div>
+
+                            
+                        </div>@*frames*@
+                    </div>
+                </div>@*tab control*@
+                </div>
+            </div>
+        </div>
+
+</body>

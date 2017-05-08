@@ -1,0 +1,33 @@
+<ion-view title="Mensajes" animation="slide-left-right">
+    
+    <ion-header-bar class="bar-subheader bar-light item-input-inset"  style="box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);">
+                <label >
+                  <p style="padding-top:5px;"><img src="{{hostName+fotoProfesor.Foto}}" width="35px" height="35px" style=" position:absolute; top:0px;"><h6 style="margin-left:45px; padding-bottom:12px;">{{fotoProfesor.Nombre}}</h6></p>
+                    </label>
+            </ion-header-bar>              
+    <ion-content style="margin-bottom:10px;" >
+      
+        <span ng-hide= "chat.$resolved" class="loader"> <ion-spinner icon="android" class="loading-icon"></ion-spinner> </span>
+<ion-list ng-show="chat.$resolved" can-swipe="listCanSwipe" class="list-mensajes"  >                
+    <div class="padding">
+    
+        <div class="mensaje" ng-repeat="item in chat" data-user="{{item.Status}}">
+            <div class="bag">
+                <p class="fechaMensaje">{{item.Fecha}}</p>
+                <p>{{item.Descripcion}}</p>
+                
+            </div>
+        </div>
+        
+</div>
+
+</ion-list>
+                  </ion-content>
+    <ion-footer-bar class="bar-light item-input-inset"  >
+            <label class="item-input-wrapper">
+                  <i class="icon ion-ios7-search placeholder-icon"></i>
+                  <input type="text" placeholder="Mensaje..." ng-model="sender">
+                <a class="button button-icon ion-ios-paperplane" style="color:#4F8EF7;" on-tap='enviarMensaje()'></a>
+            </label>
+    </ion-footer-bar>
+</ion-view>

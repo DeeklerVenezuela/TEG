@@ -1,0 +1,37 @@
+<ion-view view-title="Administrar">
+        <ion-nav-bar class="bar-light bar-header">
+            <ion-nav-back-button>Volver</ion-nav-back-button>
+        </ion-nav-bar>
+    
+        
+    
+        <ion-content scroll="true" has-bouncing="true" class="padding">
+        <span  class="loader" ng-hide="estadistica.$resolved"> <ion-spinner icon="android" class="loading-icon"></ion-spinner> </span>
+            
+        <ion-list can-swipe="listCanSwipe" ng-show="estadistica.$resolved">  
+            <ion-refresher pulling-text="Tirar para actualizar..." on-refresh="doRefreshContenido()" spinner="android"></ion-refresher>
+            <div class="card cardEstadisticas">
+                <div class="item item-text-wrap">
+                    Total de videos: {{estadistica[0]}}
+                </div>
+                <div class="item item-text-wrap">
+                    Suscriptores: {{estadistica[1]}}
+                </div>
+                <div class="item item-text-wrap">
+                    Reproducciones(últimos 30 días): {{estadistica[2]}}
+                </div>
+            </div>
+            <div class="item item-divider energized">
+                    Tus Vídeos
+                </div>
+            
+                <ion-item class="item item-thumbnail-left item-remove-animate" ng-repeat="item in videos" ng-click="modificarItem(item)">
+                    <img ng-src='{{hostName}}{{item.Thumb}}'>
+                    <h2>{{item.Nombre}}</h2>
+                    <p>{{item.Descripcion}}</p>
+                    <p>Código: {{item.Codigo}}</p>
+                    <small>Fecha de subida: {{item.Fecha}}</small>
+                </ion-item>   
+        </ion-list>
+        </ion-content>
+      </ion-view>

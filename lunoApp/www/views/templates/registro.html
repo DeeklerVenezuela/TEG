@@ -1,0 +1,133 @@
+<ion-view title="Registrarse" animation="slide-left-right">
+   <ion-nav-bar class="bar-light">
+      <ion-nav-back-button>Volver</ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content scroll="true">
+    
+    
+<div class="backImage">
+    <img    src="img/escudounefa.png" width="150px" height="200px" id="img-inicio">
+</div>
+<div>
+            <div class="list list-inset" ng-controller="RegisterController" >
+                
+            <label class="item item-input item-stacked-label">
+                <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                <span class="input-label">Nombre</span>
+                <input type="text" placeholder="Jose" ng-model="RegistrarObj.nombre">
+            </label>
+                
+            <label class="item item-input item-stacked-label">
+                <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                <span class="input-label">Apellido</span>
+                <input type="text" placeholder="Lugo" ng-model="RegistrarObj.apellido">
+            </label>
+                
+            <label class="item item-input item-stacked-label">
+                <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                <span class="input-label">Cédula</span>
+                <input type="text" placeholder="12345678" ng-model="RegistrarObj.cedula">
+            </label>
+                
+            <label class="item item-input item-stacked-label">
+                <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                <span class="input-label">Email</span>
+                <input type="email" placeholder="alguien@dominio.com" ng-model="RegistrarObj.email">
+            </label>
+                
+            <label class="item item-input item-stacked-label">                                                  
+                <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                <span class="input-label">Contraseña</span>
+                <input type="password" placeholder="********" ng-model="RegistrarObj.password">
+            </label>
+                
+            <label class="item item-input item-stacked-label">
+                <i class="icon ion-ios-unlocked-outline placeholder-icon"></i>
+                <span class="input-label">Repita Contraseña</span>
+                <input type="password" placeholder="********" ng-model="RegistrarObj.password2">
+            </label>
+            <div class="list">
+                <br>
+                <h3>Tipo de Usuario?</h2>
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="user.tipo" value="1">
+                    <div class="item-content">
+                    Estudiante
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="user.tipo" value="2">
+                    <div class="item-content">
+                    Profesor
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <label class="item item-radio">
+                    <input type="radio" name="group" ng-model="user.tipo" value="3">
+                    <div class="item-content">
+                    Administrador
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <br ng-show="user.tipo == 1">
+                <div class="item item-input item-select" ng-show="user.tipo == 1">
+                    
+                    <div class="input-label">
+                        Carrera
+                    </div>
+                    <select id="sCarrera" ng-model="RegistrarObj.carrera">
+                        <option></option>
+                        <option value="SISTEMAS">SISTEMAS</option>
+                        <option value="PETROQUIMICA">PETROQUIMICA</option>
+                    </select>
+                </div>
+                <h3>Configurar seguridad</h3>
+                <div class="item item-input item-select">
+                    <div class="input-label">
+                        Pregunta 1
+                    </div>
+                    <select id="preg1" ng-model="RegistrarObj.preg1">
+                        <option></option>
+                        <option value="1">¿Nombre de tu profesor favorito del bachillerato?</option>
+                        <option value="2">¿Nombre tu primera mascota?</option>
+                        <option value="3">¿Nombre de tu película favorita?</option>
+                    </select>
+                </div>
+                <label class="item item-input item-stacked-label">
+                    <i class="icon ion-ios-unlocked-outline placeholder-icon"></i>
+                    <span class="input-label">Respuesta</span>
+                    <input type="password" ng-model="RegistrarObj.resp1">
+                </label>
+                <br>
+                <div class="item item-input item-select">
+                    <div class="input-label">
+                        Pregunta 2
+                    </div>
+                    <select id="preg2" ng-model="RegistrarObj.preg2">
+                        <option></option>
+                        <option value="1">¿Cual es tu ciudad de nacimiento?</option>
+                        <option value="2">¿Ciudad de nacimiento de tu madre?</option>
+                        <option value="3">¿Cual fué tu primer teléfono?</option>
+                    </select>
+                </div>
+                <label class="item item-input item-stacked-label">
+                    <i class="icon ion-ios-unlocked-outline placeholder-icon"></i>
+                    <span class="input-label">Respuesta</span>
+                    <input type="password" ng-model="RegistrarObj.resp2">
+                </label>
+            </div>
+                
+               <br>
+            <button class="button button-block button-positive" ng-click="RegistrarF()">
+            Registrarse
+            </button> 
+                <a class="button button-clear button-block button-positive" href="#/inicio">
+                    Volver
+                </a>
+                
+            </div>
+</div>
+        </ion-content>
+</ion-view>
+

@@ -1,0 +1,54 @@
+<ion-view title="Recuperar cuenta" animation="slide-left-right">
+    <ion-nav-bar class="bar-light">
+      <ion-nav-back-button>Volver</ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content scroll="true">
+    
+    
+<div class="backImage">
+    <img    src="img/escudounefa.png" width="150px" height="200px" id="img-inicio">
+</div>
+
+        <div class="list list-inset" ng-hide="cambiar === true">
+            <div class="est-container">
+                    <div class="est-title">Ingrese su email</div><br>
+            </div>
+            <label class="item item-input ">
+                <input type="email" placeholder="Email" ng-model="useremail">
+            </label>
+            <button class="button button-clear button-positive config-options-buttons button-full" on-tap="BuscarPreguntas(useremail)">
+                    Buscar
+            </button> 
+        </div>
+        <div class="list list-inset" ng-show="cambiar === true">
+            <div class="est-container">
+                    <div class="est-title">Responda las siguientes preguntas de seguridad.</div><br>
+                    <div class="est-subtitle">{{pregunta1}}</div>
+            </div>
+            <label class="item item-input">
+                <input type="password" placeholder="Respuesta..." ng-model="primerarespuesta">
+            </label>
+             
+            <div class="est-container">
+                    <div class="est-subtitle">{{pregunta2}}</div>
+            </div>
+            <label class="item item-input ">
+                <input type="password" placeholder="Respuesta..." ng-model="segundarespuesta">
+            </label>
+            <div style="display:inlie-block;">
+                <div style="text-align:center;">
+                    <button class="button button-clear button-positive config-options-buttons"  ng-show="cambiar === true" on-tap="VerificarRespuestas(primerarespuesta,segundarespuesta,useremail)">
+                        Aceptar
+                    </button> 
+                    <button class="button button-clear button-assertive config-options-buttons" style="text-align:center;" ng-show="cambiar === true" on-tap="CancelarPreguntas()">
+                        Cancelar
+                    </button>
+                </div>
+            
+            
+            </div>
+        </div>
+            
+
+        </ion-content>
+</ion-view>

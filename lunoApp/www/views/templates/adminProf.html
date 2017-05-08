@@ -1,0 +1,44 @@
+<ion-view view-title="Área de Docentes">
+        <ion-nav-buttons  side="left">
+              <button class="button button-icon icon ion-ios-close-outline" on-tap="goBackFunction()"></button>  
+        </ion-nav-buttons>
+    
+        <ion-header-bar class="bar-subheader bar-light item-input-inset" style="box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);">
+                    
+        </ion-header-bar>
+    
+        <ion-content scroll="true" has-bouncing="true" class="padding">
+        <span  class="loader" ng-hide="pendientes.$resolved"> <ion-spinner icon="android" class="loading-icon"></ion-spinner> </span>
+            
+        <ion-list can-swipe="listCanSwipe" ng-show="pendientes.$resolved">  
+            <ion-refresher pulling-text="Tirar para actualizar..." on-refresh="doRefreshPendientes()" spinner="android"></ion-refresher>
+            <a class="button icon-right ion-chevron-right button-positive button-full" ui-sref="contenido()">Administrar Videotutoriales</a>    
+                 
+                <div class="est-container">
+                    <div class="est-title">Pendientes de aprobacion</div>
+                    <div class="est-subtitle">Verifique el Nro. de identidad antes de aprobar</div>
+                </div>
+                <ion-item class="list card cardEstadisticas" ng-repeat="item in pendientes" ng-click="aprobarSuscripcion(item)">
+                    <div class="item item-avatar">
+                        <img src="{{hostName + item.Thumb}}" style="border-radius:0px;">
+                        <h2>{{item.NombreProfesor}}{{' '}}{{item.ApellidoProfesor}}</h2>
+                        <p>Fecha de Solicitud: {{item.Fecha}}</p>
+                    </div>
+                    <div class="item item-body" scroll="true" style="max-height:120px; padding-top: 0px; margin-left:25px;">    
+                            <h3 class="aprobacion-container">
+                                <b>Vídeo: </b> {{item.Nombre}}
+                            </h3>
+                            <h3 class="aprobacion-container">
+                                <b>Grupo(s):</b>
+                            </h3>
+                            <h3 ng-repeat="j in item.Grupos" class="aprobacion-container"> 
+                                {{j}}
+                            </h3>
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left footer-card">
+                        Cédula: <b>{{item.Cedula}}</b>
+                    </div>
+                </ion-item>
+        </ion-list>
+        </ion-content>
+      </ion-view>

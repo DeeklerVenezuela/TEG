@@ -1,0 +1,85 @@
+<ion-view view-title="Grupos" animation="slide-left-right">
+
+            <ion-nav-buttons  side="left">
+              <button class="button button-icon icon ion-ios-close-outline" on-tap="goBackFunction()"></button>  
+        </ion-nav-buttons>
+ 
+           
+               
+    
+          <ion-header-bar class="bar-subheader bar-light item-input-inset" style="box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);">   
+            </ion-header-bar>
+    
+        <ion-content class="config-options-lists">
+            
+            <div class="list padding">
+                <h3>Tus Suscripciones a grupos</h3>
+                <div class="item item-input" ng-repeat="i in gruposUser" style="padding: 5px;">
+                    <button class="button button-full button-positive" > 
+                        {{i.Grupo}}
+                    </button>
+                </div>
+                
+            </div>   
+            
+            <div class="list padding">
+                <h3>Añadir un nuevo grupo</h3>
+                <div class="item item-input item-select">
+                    <div class="input-label">
+                        Carrera
+                    </div>
+                    <select id="sCarreras">
+                        <option></option>
+                        <option value="{{i}}" ng-repeat="i in carreras">{{i}}</option>
+                    </select>
+                </div>
+                <div  class="item item-input item-select">
+                    <div class="input-label">
+                        Semestre
+                    </div>
+                    <select id="sSemestre">
+                        <option></option>
+                        <option value="{{i}}" ng-repeat="i in semestre" >{{i}}</option>
+                    </select>
+                </div>
+                <div class="item item-input item-select">
+                    <div class="input-label">
+                        Turno
+                    </div>
+                    <select id="sTurno">
+                        <option></option>
+                        <option ng-repeat="i in turno" value="{{i}}">{{i}}</option>
+                    </select>
+                </div>
+                <div class="item item-input item-select">
+                    <div class="input-label">
+                        Sección
+                    </div>
+                    <select id="sSeccion">
+                        <option></option>
+                        <option value="{{i}}" ng-repeat="i in seccion">{{i}}</option>
+                    </select>
+                </div>
+                <button disabled id="addGBtn" ng-click="agregarGrupo()" class="button button-clear button-positive config-options-buttons">
+                    Aceptar
+                </button>
+                
+            </div>
+            <div class="list padding">
+                <h3>Cancelar suscripción a grupos</h3>
+                
+                <ul>
+                    <li class="item item-input" style="padding: 5px;" ng-repeat="i in gruposUser" data-id="{{i.GrupoId}}">
+                                        
+                            <button class="button button-full button-energized" ng-click="eliminarGrupo({{i.GrupoId}})" > 
+                                {{i.Grupo}}
+                            </button>
+                        
+                    </li>
+                </ul>
+                
+            </div> 
+            
+
+        </ion-content>
+      </ion-view>

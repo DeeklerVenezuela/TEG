@@ -1,0 +1,16 @@
+﻿<body>
+    @if (ViewBag.response != null)
+    {
+        <p>@ViewBag.response</p>
+        <p>@ViewBag.path</p>
+    }
+        
+    @using(Html.BeginForm("Subir", "Videos", FormMethod.Post,
+                            new { enctype = "multipart/form-data" })){
+
+        <input type="text" name="Nombre" value="" placeholder="nombre" />
+        <input type="text" name="Descripcion" value="" placeholder="descripcion" />
+        <input type="file" name="Video" value="" />
+        <input type="submit" name="submit" value="Enviar" />
+    }
+</body>

@@ -1,0 +1,108 @@
+<ion-view ng-init="buscarDatosEstadisticos()" view-title="Estadísticas">
+        <ion-nav-buttons  side="left">
+              <button class="button button-icon icon ion-ios-close-outline" on-tap="goBackFunction()"></button>  
+        </ion-nav-buttons>
+        <ion-nav-bar class="bar-positive"></ion-nav-bar>
+    
+        <ion-content scroll="true" has-bouncing="false">
+        <span  class="loader" ng-hide="datosGlobales.$resolved"> <ion-spinner icon="android" class="loading-icon light"></ion-spinner> </span>
+        
+
+          <div ng-show="datosGlobales.$resolved" class="slider-stadistics padding">
+            
+            
+            <div class="list center-listas" >
+            <div class="item est-container" scroll="true" >
+
+            <highchart id="chart1" config="highchartsNG1"></highchart>
+                
+            </div>
+            <div class="item padding">
+                
+                
+              <label class="item item-input">
+                <h4 class="input-label">Videotutoriales</h4>
+                <input type="text" readonly value="{{datosGlobales[0]}}">
+            </label>
+            <label class="item item-input">
+                <h4 class="input-label">Reproducciones</h4>
+                <input type="text" readonly value="{{datosGlobales[2]}}">
+            </label>
+            <label class="item item-input">
+                <h4 class="input-label">Likes</h4>
+                <input type="text" readonly value="{{datosGlobales[3]}}">
+            </label>
+            <label class="item item-input">
+                <h4 class="input-label">DisLikes</h4>
+                <input type="text" readonly value="{{datosGlobales[4]}}">
+            </label>
+            <label class="item item-input">
+                <h4 class="input-label">Suscriptores</h4>
+                <input type="text" readonly value="{{datosGlobales[1]}}">
+            </label>
+            <label class="item item-input">
+                <h4 class="input-label">Mensajes</h4>
+                <input type="text" readonly value="{{datosGlobales[5]}}">
+            </label>
+            <label class="item item-input">
+                <h4 class="input-label">Sesiones</h4>
+                <input type="text" readonly value="{{datosGlobales[6]}}">
+            </label>
+            <label class="item item-input">
+                <h4 class="input-label">Grupos</h4>
+                <input type="text" readonly value="{{datosGlobales[7]}}">
+            </label>
+                
+              <br>
+              
+                <div class="est-container">
+                    <div class="est-title">Detalle de vídeos</div>
+                    <div class="est-subtitle">Desde el principio de los tiempos</div>
+                </div>
+                <div class="list card cardEstadisticas" ng-repeat="item in detalleVideos">
+                    <div class="item item-avatar">
+                        <img src="{{hostName}}{{item.Thumb}}" style="border-radius:0px;">
+                        <h2>{{item.Nombre}}</h2>
+                        <p>{{item.Fecha}}</p>
+                    </div>
+                    <div class="item item-body" scroll="true" style="max-height:120px;">
+                        <p>
+                        {{item.Descripcion}}
+                        </p>
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item" >
+                        <i class="icon ion-thumbsup"></i>
+                        {{item.Likes}}
+                        </a>
+                        <a class="tab-item" >
+                        <i class="icon ion-thumbsdown"></i>
+                        {{item.Dislikes}}
+                        </a>
+    
+                        <a class="tab-item">
+                        <i class="icon ion-ios-people-outline"></i>
+                        {{item.Suscripciones}}
+                        </a>
+                        <a class="tab-item">
+                        <i class="icon ion-ios-play-outline"></i>
+                         {{item.Reproducciones}}
+                        </a>
+                    </div>
+                </div>
+            
+        
+                
+                
+               </div>
+              </div>           
+              
+            
+                
+          </div>
+          
+        
+        
+        </ion-content>
+        
+    </ion-view>

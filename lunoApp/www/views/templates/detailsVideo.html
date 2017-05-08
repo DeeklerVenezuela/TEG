@@ -1,0 +1,60 @@
+
+<ion-view title="{{item.Nombre}}">
+    <ion-nav-bar class="bar-light">
+        <ion-nav-back-button>Volver</ion-nav-back-button>
+        
+  </ion-nav-bar>
+                  <ion-content>
+                      
+                      <video id="reproductor-main" preload="auto" controls ng-src={{GenerateUrl(item.URL)}} class="video-detail" style="width:100%; height:auto;">
+                      
+                      </video>
+                      
+                      <div class="padding"><h4><b>Descripción:</b> </h4>
+                      <p>{{item.Descripcion}}</p>
+                    </div>
+                      <div class="list">
+                          <div class="item item-divider">
+                              <label>
+                                   <i class="ion-thumbsup icon icon-standard" on-tap="like(true)"><span>{{lpos}}</span></i><i class="ion-thumbsdown icon icon-standard" on-tap="like(false)"><span>{{lneg}}</span></i> <i class="ion-ios-chatboxes-outline icon icon-standard"><span>{{com}}</span></i> <i class="ion-ios-play-outline icon icon-standard"><span>{{repro}}</span></i>
+                              </label>
+                          </div>
+                          <div class="item item-divider">
+                               Comentarios
+                          </div>
+                          
+                          <div class="item item-input-inset">
+                            <label class="item-input-wrapper" style="background:#4F8EF7; opacity:.65;">
+                                <input ng-model="comentario" id="foro-input" type="text" placeholder="Escribe un comentario..."  style=" color:#000; font-weight:bold; margin-bottom:2px; width:100%;">
+                                <a class="button-icon ion-ios-paperplane " style="font-size:32px; color:#fff;" on-tap="enviarComentario(comentario)"></a>
+                            </label>
+                          </div>
+                          
+                          <div class="padding">
+                          <div class="comentario-container" ng-repeat="item in listadoComentarios" data-user="{{item.Status}}">
+                            <div>
+                            <div class="img-container">
+                                <img src="{{hostName}}{{item.Thumb}}"></img>
+                            </div>
+                            <div class=" comentario">
+                                <div class="bag">
+                                    <div><p class="fechaMensaje"><span >{{item.User}} &nbsp; {{item.Fecha}}</span></p></div>
+                                    <p class="descMensaje">{{item.Descripcion}}</p>
+                                </div>
+                            </div>
+                              </div>
+                          </div>
+                      
+                      </div>
+                            
+                          
+                      </div>
+                  </ion-content>
+    <ion-footer-bar class="bar-light item-input-inset">
+            <label class="item-input-wrapper">
+                  <i class="icon ion-ios7-search placeholder-icon"></i>
+                  <input type="text" placeholder="Mensaje privado al profesor..." ng-model="privado" id="privadoInput">
+                <button class="button button-icon ion-ios-paperplane" style="color:#4F8EF7;" on-tap="enviarPrivado(privado)"></button>
+            </label>
+    </ion-footer-bar>
+</ion-view>

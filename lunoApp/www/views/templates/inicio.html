@@ -1,0 +1,39 @@
+<ion-view title="Iniciar Sesión" animation="slide-left-right" hide-nav-bar="true">
+    <ion-nav-buttons side="right">
+    </ion-nav-buttons>
+    <ion-content scroll="true">
+    
+    
+<div class="backImage">        
+    <img    src="img/escudounefa.png" width="150px" height="200px" id="img-inicio">
+</div>
+            <div class="list list-inset" ng-controller="InitController">
+            
+                <label class="item item-input item-stacked-label">
+                <i class="icon ion-ios-person-outline placeholder-icon"></i>
+                <span class="input-label">Email</span>
+                <input type="email" placeholder="alguien@dominio.com" ng-model="LoginObj.email">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <i class="icon ion-ios-unlocked-outline placeholder-icon"></i>
+                <span class="input-label">Contraseña</span>
+                <input type="password" placeholder="********" ng-model="LoginObj.pass">
+            </label>
+            
+                
+               <br>
+            <a class="button button-block button-positive" ng-click="Login()">
+            Ingresar
+            </a> 
+                <a class="button button-clear button-block button-positive" ui-sref="registro()">
+                    Registrarse
+                </a>
+                <a class="button button-clear button-block button-positive" ui-sref="recuperar()">
+                    Olvidó su contraseña?
+                </a>
+            </div>
+    </ion-content>
+</ion-view>
+
+
+      

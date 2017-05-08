@@ -1,0 +1,127 @@
+#MainVideo{
+    width:100%;
+    height:auto;
+}
+
+.login-form {
+           background:#ffffff;
+           width:400px;
+           left:50%;
+           top:50%;
+           margin-top:-200px;
+           margin-left:-200px;
+           height:400px;
+           -webkit-transform: scale(.8);
+            transform: scale(.8);
+            position:fixed;
+        }
+
+.logo-unefa{
+   
+    width:120px;
+    
+    z-index:2000;
+   
+    
+}
+
+.foto{
+    position:fixed;
+    left:80%;
+    top:10%;
+    
+}
+
+::-webkit-scrollbar {
+      width: 8px;
+}
+
+::-webkit-scrollbar-track {
+      background-color: rgb(128, 128, 128);
+} 
+
+::-webkit-scrollbar-thumb {
+      background-color: #c2c2c2;
+} 
+
+::-webkit-scrollbar-corner {
+      background-color: black;
+}
+
+html, body {
+            height: 100%;
+            overflow:hidden;
+        }
+        .page-content {
+            padding-top: 3.125rem;
+            min-height: 100%;
+            
+            height: 100%;
+        }
+
+        .table .input-control.checkbox {
+            line-height: 1;
+            min-height: 0;
+            height: auto;
+        }
+
+        @media screen and (max-width: 800px){
+            #cell-sidebar {
+                flex-basis: 52px;
+            }
+        }
+
+        .frame{
+            overflow-y:scroll;
+        }
+
+        .selected{
+            background-color:#00aff0;
+            color:#fff;
+        }
+
+        .thumbnailVideo:hover{
+            opacity: 0.4;
+    filter: alpha(opacity=40);
+        }
+
+        .thumbnailVideo{
+            -webkit-transition:all .3s ease; /* Safari y Chrome */
+-moz-transition:all .3s ease; /* Firefox */
+-o-transition:all .3s ease; /* IE 9 */
+-ms-transition:all .3s ease; /* Opera */
+        }
+
+        p{
+            max-width:100%;
+        }
+        .videoThumb{
+            display:inline-block;
+        }
+        
+        @media (max-width: 500px) { 
+            .videoThumb {
+                width:100%;
+            }
+        }
+
+
+        @media (min-width: 501px) and (max-width:991px) { 
+            .videoThumb {
+                width:44%;
+            }
+        }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width:1199px) { 
+    .videoThumb {
+                width:30%;
+            }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .videoThumb {
+                width:30.5%;
+            }
+}
